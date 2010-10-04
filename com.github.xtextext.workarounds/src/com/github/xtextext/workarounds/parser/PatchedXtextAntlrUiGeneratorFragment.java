@@ -9,6 +9,8 @@ import org.eclipse.xpand2.output.PostProcessor;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.generator.Generator;
 
+import com.google.common.collect.ImmutableList;
+
 /**
  * Patches the generated antlr grammar to use
  * {@link PatchedAbstractInternalContentAssistParser} as the parser's base class.
@@ -30,9 +32,9 @@ public class PatchedXtextAntlrUiGeneratorFragment extends
             grammarBlob = grammarBlob
                   .replace(
                         "org.eclipse.xtext.ui.editor.contentassist.antlr.internal.AbstractInternalContentAssistParser",
-                        "com.github.xtextext.workarounds.caparserbug.PatchedAbstractInternalContentAssistParser")
-                  .replace("AbstractInternalContentAssistParser",
-                        "PatchedAbstractInternalContentAssistParser");
+                        "com.github.xtextext.workarounds.parser.PatchedAbstractInternalContentAssistParser")
+                  .replace("superClass=AbstractInternalContentAssistParser",
+                        "superClass=PatchedAbstractInternalContentAssistParser");
             impl.setBuffer(grammarBlob);
          }
       }
@@ -41,6 +43,20 @@ public class PatchedXtextAntlrUiGeneratorFragment extends
       {
          // nothing to do
       }
+   }
+
+   private static final String[] IMPORTED_PACKAGES = new String[] { "com.github.xtextext.workarounds.caparserbug" };
+
+   @Override
+   public String[] getImportedPackagesUi(Grammar grammar)
+   {
+      String[] basePackages = super.getImportedPackagesUi(grammar);
+      if(null != basePackages)
+      {
+         return ImmutableList.of(basePackages, IMPORTED_PACKAGES)
+               .toArray(new String[] {});
+      }
+      return IMPORTED_PACKAGES;
    }
 
    @Override

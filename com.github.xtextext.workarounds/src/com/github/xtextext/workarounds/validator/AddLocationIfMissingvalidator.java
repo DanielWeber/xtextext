@@ -16,7 +16,7 @@ import com.google.common.collect.Multimap;
  *
  * @author DaWeber
  */
-public class AddLocationIfMissingvalidator extends Validator
+public class AddLocationIfMissingValidator extends Validator
 {
    @Override
    protected Multimap<URI, MWEDiagnostic> groupByURI(MWEDiagnostic[] diagnostic)

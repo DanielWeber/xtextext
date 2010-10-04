@@ -7,7 +7,7 @@ import org.eclipse.emf.mwe.core.issues.IssuesImpl;
 import org.eclipse.xtext.validation.Issue.IssueImpl;
 import org.junit.Test;
 
-import com.github.xtextext.workarounds.validator.AddLocationIfMissingvalidator;
+import com.github.xtextext.workarounds.validator.AddLocationIfMissingValidator;
 
 /**
  *
@@ -25,7 +25,7 @@ public class AddLocationIfMissingvalidatorTest
       issues.addWarning("Warning1", new IssueImpl());
       issues.addWarning("Warning2", new IssueImpl());
       issues.addWarning("Warning3", new IssueImpl());
-      AddLocationIfMissingvalidator testee = new AddLocationIfMissingvalidator();
+      AddLocationIfMissingValidator testee = new AddLocationIfMissingValidator();
       // throws an NPE in 1.0.1
       testee.toString(issues);
    }
