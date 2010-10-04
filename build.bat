@@ -1,0 +1,1 @@
+buckminster -data .workspace -S com.github.xtextext.releng/hudson-build-script.txt %*

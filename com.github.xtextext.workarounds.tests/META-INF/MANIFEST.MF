@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Tests
+Bundle-SymbolicName: com.github.xtextext.workarounds.tests
+Bundle-Version: 1.0.1.qualifier
+Bundle-Vendor: Daniel Weber
+Fragment-Host: com.github.xtextext.workarounds;bundle-version="1.0.1"
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Require-Bundle: org.junit

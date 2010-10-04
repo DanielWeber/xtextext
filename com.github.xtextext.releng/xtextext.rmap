@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rm:rmap xmlns:bc="http://www.eclipse.org/buckminster/Common-1.0" xmlns:rm="http://www.eclipse.org/buckminster/RMap-1.0">
+
+  <rm:locator pattern="^com\.github\.xtextext\..*$" searchPathRef="xtextext" failOnError="true"/>
+  <rm:locator searchPathRef="helios-binaries"/>
+  
+  <rm:searchPath name="xtextext">
+    <rm:provider componentTypes="buckminster,osgi.bundle,eclipse.feature" readerType="local">
+      <rm:uri format="file:/{0}/{1}">
+        <bc:propertyRef key="user.dir"/>
+        <bc:propertyRef key="buckminster.component"/>
+      </rm:uri>
+    </rm:provider>
+  </rm:searchPath>
+  
+  <rm:searchPath name="helios-binaries">
+    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" mutable="false">
+      <rm:uri format="http://download.eclipse.org/releases/helios"/>
+    </rm:provider>
+    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" mutable="false">
+      <rm:uri format="http://download.itemis.com/updates/releases/"/>
+    </rm:provider>
+  </rm:searchPath>
+  
+</rm:rmap>

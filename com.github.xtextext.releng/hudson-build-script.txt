@@ -1,0 +1,12 @@
+setpref targetPlatformPath=${user.dir}/.target-platform
+setpref complianceLevel=1.5
+
+resolve "${user.dir}/com.github.xtextext.releng/xtextext.cquery"
+
+clean
+build
+
+perform com.github.xtextext.releng#buckminster.clean
+perform com.github.xtextext.releng#site.p2
+
+emma -q -l /com.github.xtextext.workarounds.tests/com.github.xtextext.workarounds.tests.launch -o .test-reports/com.github.xtextext.workarounds.tests.xml -m --xml .test-reports/coverage.xml --emma .test-reports/coverage.emma --flatXML

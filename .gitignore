@@ -1,0 +1,5 @@
+.target-platform/
+.test-reports/
+.workspace/
+bin/
+src-gen/
